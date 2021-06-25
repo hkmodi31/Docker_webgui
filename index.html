@@ -1,0 +1,58 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker-webgui</title>
+    <!--<link rel="stylesheet" href="./stylesheet.css" />-->
+  </head>
+  <script>
+    function harsh() {
+      var xhr = new XMLHttpRequest();
+      cmd = document.getElementById("value").value;
+      xhr.open("GET", "http://65.2.124.179/cgi-bin/cmd.py?x=" + cmd, false);
+      xhr.send();
+      var output = xhr.responseText;
+      document.getElementById("value3").innerHTML = output;
+    }
+
+    function harsh2() {
+      document.getElementById("value").value = "";
+	    document.getElementById("value3").innerHTML = "";
+    }
+  </script>
+  <style>
+    * {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    section {
+      text-align: center;
+    }
+
+    button {
+      width: 8rem;
+    }
+  </style>
+  <body>
+    <section>
+      <h1>Welcome to your Docker WebGui</h1>
+      <div>
+        It's easy, write your commands and you would see the output directly
+      </div>
+      <div>(Yeah we know, we do magic behind closed doors!)</div>
+    </section>
+    <br /><br /><br /><br />
+    <section>
+      <input type="text" id="value" />
+      <br /><br />
+      <div id="value3">.....</div>
+      <br />
+      <br />
+      <button onclick="harsh();">Run Command</button>
+      <button onclick="harsh2();">Reset</button>
+    </section>
+  </body>
+</html>
+
